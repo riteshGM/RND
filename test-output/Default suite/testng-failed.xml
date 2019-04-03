@@ -3,11 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.appname.TestNGPrograms.TestNGProg_RetryMechanism">
+      <class name="com.appname.seleniumprograms.AlertScreenCaptureRND">
         <methods>
-          <include name="Test1"/>
+          <include name="bla"/>
+          <include name="init"/>
         </methods>
-      </class> <!-- com.appname.TestNGPrograms.TestNGProg_RetryMechanism -->
+      </class> <!-- com.appname.seleniumprograms.AlertScreenCaptureRND -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

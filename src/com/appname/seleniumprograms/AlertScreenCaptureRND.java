@@ -19,7 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AlertRND {
+public class AlertScreenCaptureRND {
 	
 	
 	WebDriver driver;
@@ -36,13 +36,14 @@ public class AlertRND {
 	 driver.findElement(By.name("submit")).click();
 	 
 	 Alert obj = null;
-	 obj.accept();
+	 //obj.accept();
 	 
 	 // Trigger the alert
 	 BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 	 ImageIO.write(image, "png", new File("Test.png"));
 	 
-	 driver.switchTo().alert();
+	 //driver.switchTo().alert();
+	 driver.findElement(By.id("id"));
 	 driver.quit();
 	 //driver.switchTo().alert().accept();
 	 }

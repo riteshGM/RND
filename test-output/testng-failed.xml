@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
+  <test thread-count="5" name="test1(failed)">
+    <parameter name="ritesha" value="1234567"/>
     <classes>
-      <class name="com.appname.seleniumprograms.AlertScreenCaptureRND">
+      <class name="com.appname.TestNGPrograms.ParametersSample">
         <methods>
-          <include name="bla"/>
-          <include name="init"/>
+          <include name="testPrintMessage"/>
+          <include name="testSalutationMessage2"/>
+          <include name="testingExitMessage"/>
+          <include name="testSalutationMessage"/>
         </methods>
-      </class> <!-- com.appname.seleniumprograms.AlertScreenCaptureRND -->
+      </class> <!-- com.appname.TestNGPrograms.ParametersSample -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- test1(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

@@ -1,1 +1,7 @@
-/bin
+/bin/
+test-output/Suite
+test-output
+test-output/old
+test-output/Default suite/
+/test-output/
+test-output/old/Default suite

@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Suite1">
+ <!-- Parameters at Suite Level -->
+ <parameter name = "ritesh" value="1234567"/> 
+   <test name = "test1">
+   <!-- Parameter at Test Level Overriding value -->
+      <parameter name = "ritesh" value="overrided parameter value"/> 
+      <classes>
+         <class name = "com.appname.TestNGPrograms.ParametersMadeOptionalSample">
+      		<methods>
+      		<include name="optionalParameterSample" />
+      		</methods>
+      	</class>
+      </classes>
+   </test>
+   <test name = "test2">
+      <classes>
+      
+         <class name = "com.appname.TestNGPrograms.ParametersMadeOptionalSample" >
+      	<methods>
+      	
+      		<include name="optionalParameterSample2" />
+      		</methods>
+      	</class>
+      
+      </classes>
+   </test>
+</suite>

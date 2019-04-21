@@ -21,7 +21,8 @@ public class GetExcelDataUtil {
 	
 	public static XSSFWorkbook getWorkbook() throws FileNotFoundException, IOException{
 		System.out.println("Resource Path "+EXCEL_RESOURCE_PATH);
-		return new XSSFWorkbook(new FileInputStream (new File( EXCEL_RESOURCE_PATH+"\\sheet1.xlsx")));
+		//return new XSSFWorkbook(new FileInputStream (new File( EXCEL_RESOURCE_PATH+"\\sheet1.xlsx")));
+		return new XSSFWorkbook(new FileInputStream (EXCEL_RESOURCE_PATH+"\\sheet1.xlsx"));
 	}
 	
 	public static XSSFSheet getSheet(int index) throws FileNotFoundException, IOException{

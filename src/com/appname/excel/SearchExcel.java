@@ -23,6 +23,7 @@ public class SearchExcel {
             // Get first/desired sheet from the workbook
             XSSFSheet sheet = workbook.getSheetAt(0);
             
+            
             // add sheet2 to sheet1
             ArrayList<Row> rows = searchSheet("Srinivas", sheet);
             System.out.println("filtered rows : \n"+rows);
@@ -66,17 +67,17 @@ public class SearchExcel {
             
                //Search value based on cell type
                switch (cell.getCellType()) {
-                case HSSFCell.CELL_TYPE_NUMERIC:
+                case XSSFCell.CELL_TYPE_NUMERIC:
                     if(doubleValue != null && doubleValue.doubleValue() == cell.getNumericCellValue()) {
                         filteredRows.add(row);
                     }
                     break;
-                case HSSFCell.CELL_TYPE_STRING:
+                case XSSFCell.CELL_TYPE_STRING:
                     if(searchText != null && searchText.equals(cell.getStringCellValue())) {
                         filteredRows.add(row);
                     }
                     break;
-                case HSSFCell.CELL_TYPE_BOOLEAN:
+                case XSSFCell.CELL_TYPE_BOOLEAN:
                     if(booleanValue != null && booleanValue.booleanValue() == cell.getBooleanCellValue()) {
                         filteredRows.add(row);
                     }

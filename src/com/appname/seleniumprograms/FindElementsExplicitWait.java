@@ -24,8 +24,9 @@ public class FindElementsExplicitWait {
 			driver.get("http://www.seleniumeasy.com/test/basic-checkbox-demo.html");
 			driver.manage().window().maximize();
 			By locator = By.xpath("//input[@class='cb1-element']");
-			WebDriverWait waitForFormLabel = new WebDriverWait(driver, 10);      
-			List <WebElement> myIput = waitForFormLabel.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			
+			List <WebElement> myIput = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 			System.out.println("Total Elements "+myIput.size());
 
 		}catch(TimeoutException e){

@@ -67,19 +67,36 @@ public class DataProviderReturningOtherThanObject {
 			array.add("Ritesh1");
 			array.add("Ritesh2");
 			array.add("Ritesh3");
-			Object [][] testData = new Object [array.size()][];
-			for (int i=0 ; i<array.size();i++){
-				testData [i][0]=array.get(i);
-			}
+			System.out.println("Total Size is "+array.size());
+			Object [] testData = new Object [array.size()];
+		/*	for (int i=0 ; i<array.size();i++){
+				testData [0][i]=array.get(i);
+			}*/
 			
-			return testData;
+			System.out.println(array.get(0));
+			System.out.println(array.get(1));
+			System.out.println(array.get(2));
+			System.out.println(array.get(3));
+			System.out.println(testData.length);
+			
+			testData[0]= array.get(0);
+			testData[1]= array.get(1);
+			testData[2]= array.get(2);
+			testData[3]= array.get(3);
+			
+			Object [][] finalObj = new Object [][]{testData};
+			
+			
+			return finalObj;
 			
 			
 	        
 	    }
 		
 	 @Test(dataProvider = "data-provider")
-	    public void testMethod(ArrayList<String> value) {
+	    public void testMethod(Object [] value) {
+		 
+		 String text=(String) value[0];
 	        System.out.println("Data is: " + value);
 	    }
 	

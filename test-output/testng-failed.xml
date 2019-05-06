@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
-  <test thread-count="5" name="test1(failed)">
-    <parameter name="ritesha" value="1234567"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="AutomationTest(failed)">
+    <parameter name="testBrowser" value="internet"/>
     <classes>
-      <class name="com.appname.TestNGPrograms.ParametersSample">
+      <class name="com.appname.TestNGPrograms.DataProviderRND5">
         <methods>
-          <include name="testPrintMessage"/>
-          <include name="testSalutationMessage2"/>
-          <include name="testingExitMessage"/>
-          <include name="testSalutationMessage"/>
+          <include name="setData"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+          <include name="afterClass"/>
+          <include name="beforeSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="afterSuite"/>
+          <include name="afterTest"/>
         </methods>
-      </class> <!-- com.appname.TestNGPrograms.ParametersSample -->
+      </class> <!-- com.appname.TestNGPrograms.DataProviderRND5 -->
     </classes>
-  </test> <!-- test1(failed) -->
-</suite> <!-- Failed suite [Suite1] -->
+  </test> <!-- AutomationTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

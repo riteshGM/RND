@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 
 /**
  * 
@@ -16,6 +18,7 @@ import java.util.Scanner;
  */
 public class ReverseString_1 {
 	public static void main(String args[]){
+		
 /*		Scanner scan = new Scanner (System.in);
 		String text =scan.nextLine();
 */		String text = "Ritesh Mansukhani is a Hello World Prakash , Good Man";
@@ -41,6 +44,7 @@ public class ReverseString_1 {
 			}
 			reverse.add(array[i]);
 		}
+		
 		
 		reverse.add(commaPosition,",");
 		

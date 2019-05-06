@@ -2,6 +2,26 @@ package com.appname.impprogs;
 
 import java.util.Scanner;
 
+/****
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 			**********
+			*********
+			********
+			*******
+			******
+			*****
+			****
+			***
+			**
+			*
+ * @author RiteshMansukhani
+ *
+ */
+
 public class StarProgram_1 {
 		
 		public static void main(String args[]) {

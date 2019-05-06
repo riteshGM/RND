@@ -37,10 +37,14 @@ public class ReverseInt {
 			int mod;
 			
 			while(temp != 0) {
-				
+				System.out.println("temp is "+temp);
 				mod = temp % 10;
+				System.out.println("mod is "+mod);
 				sum = sum * 10 + mod;
+				System.out.println("sum is "+sum);
 				temp = temp / 10;
+				System.out.println("temp is at end"+temp);
+				
 			}
 			
 			System.out.println("\nThe Reversed Order is : \n" + sum);
@@ -51,6 +55,8 @@ public class ReverseInt {
 			
 			ReverseInt obj = new ReverseInt();
 			
+			System.out.println("1%10 is "+1%10);
+			System.out.println("1/10 is "+1/10);
 			obj.getVal();
 			obj.reverseOrder();
 		}

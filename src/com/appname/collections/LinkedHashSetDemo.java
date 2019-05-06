@@ -1,6 +1,7 @@
 package com.appname.collections;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -56,6 +57,11 @@ public class LinkedHashSetDemo {
         
         HashSet<String> hashSet = new HashSet<String>();
         hashSet.add(null);
+        hashSet.add("a");
+        hashSet.add("a");
+        hashSet.add("b");
+        
+        //iF try to add same value again it will keep one value only
         hashSet.add(null);
         System.out.println(hashSet);
         

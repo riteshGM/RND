@@ -1,6 +1,8 @@
 package com.appname.impprogs;
 
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PalindromeCharString {
@@ -21,6 +23,7 @@ public class PalindromeCharString {
         // Declaring an empty string variable to store reverse string
         String reverseInput = "";
         
+       
        
         // reading char by char from end of array till first and forming a string
 		for (int i= (stringInChar.length-1); i>=0; i--) {

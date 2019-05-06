@@ -25,6 +25,8 @@ public class ReverseString_2 {
 	
 		
 		StringBuilder builder = new StringBuilder();
+		
+		
 		for (int i = array.length-1;i>=0;i--){
 		
 			if(array[i].equals(",")){
@@ -35,6 +37,7 @@ public class ReverseString_2 {
 			builder.append(array[i]).append(" ");
 		}
 		
+		System.out.println("Printing Builder Vlaue without reverse() "+builder);
 		System.out.println("Printing Builder Vlaue using reverse() "+builder.reverse());
 		
 	}

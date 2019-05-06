@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  
+  <test name="AutomationTest">
+  <parameter name="testBrowser" value="internet"/>
+    <classes>
+      <class name="com.appname.TestNGPrograms.DataProviderRND5"/>
+    </classes> 
+  </test> <!-- AutomationTest -->
+
+</suite> <!-- Suite -->

@@ -24,7 +24,5 @@ public class LinkedHashMapDemo {
         linkedHashMap.clear();
         System.out.println("\nContent of LinkedHashMap after clearing: " + linkedHashMap);
         
-        
-  
   }
 }

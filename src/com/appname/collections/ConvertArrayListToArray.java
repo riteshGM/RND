@@ -19,7 +19,6 @@ class ConvertArrayListToArray {
 		for (String k : citinames) {
 			System.out.println(k);
 		}
-
 		// sort using Collections.sort()
 		Collections.sort(cities);
 		System.out.println(cities);

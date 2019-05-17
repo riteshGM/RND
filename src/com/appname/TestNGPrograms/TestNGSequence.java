@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterGroups;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
@@ -81,6 +82,18 @@ public class TestNGSequence {
 		   System.out.println("in afterGroup");
 		   
 	   }
+	   
+	   @DataProvider(name = "data-provider")
+	    public Object[][] dataProviderMethod() {
+		   System.out.println("Inside DataProvider Implementation dataProviderMethod");
+		   
+	        return new Object[][] { { "data one" }, { "data two" } };
+	    }
+		
+		@Test(dataProvider = "data-provider" , groups="functional")
+	    public void testMethod(String data) {
+	        System.out.println("Data is: " + data);
+	    }
 	   
 
 	

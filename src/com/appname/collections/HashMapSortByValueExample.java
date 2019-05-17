@@ -25,8 +25,8 @@ public class HashMapSortByValueExample {
     hashmap.put(88,"X");
  
     System.out.println("Before Sorting:");
-    Set set = hashmap.entrySet();
-    Iterator iterator = set.iterator();
+    Set<Map.Entry<Integer,String>> set = hashmap.entrySet();
+    Iterator<Map.Entry<Integer,String>> iterator = set.iterator();
     while(iterator.hasNext()) {
         Map.Entry pair = (Map.Entry)iterator.next();
         System.out.print(pair.getKey() + ": ");

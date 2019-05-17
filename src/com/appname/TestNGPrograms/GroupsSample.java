@@ -2,6 +2,7 @@ package com.appname.TestNGPrograms;
 
 import org.testng.annotations.AfterGroups;
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class GroupsSample {
@@ -42,5 +43,15 @@ public class GroupsSample {
 	   public void testingExitMessage() {
 	      System.out.println("Inside functional()");
 	   }  
+	   
+		@DataProvider(name = "data-provider")
+	    public Object[][] dataProviderMethod() {
+	        return new Object[][] { { "data one" }, { "data two" } };
+	    }
+		
+		@Test(dataProvider = "data-provider")
+	    public void testMethod(String data) {
+	        System.out.println("Data is: " + data);
+	    }
 	
 }

@@ -13,7 +13,7 @@ public class ArmstrongNumber {
 			int armstrongSum = 0;
 			System.out.println("==================== Check if "+i+" is Armstrong ===========================");
 			
-			while(remainingNum>=1){
+			while(remainingNum>0){
 				temp=remainingNum%10;
 				System.out.println("Temp:"+temp);
 			armstrongSum = armstrongSum + temp*temp*temp;
@@ -96,8 +96,8 @@ public class ArmstrongNumber {
 		checkArmstrongNumber(370);
 		checkArmstrongNumber(371);
 		checkArmstrongNumber(372);
-		checkArmstrongNumberInRange(300);
-		checkArmstrongNumberInFromToRange(400, 500);
+		//checkArmstrongNumberInRange(300);
+		//checkArmstrongNumberInFromToRange(400, 500);
 	}
 
 }

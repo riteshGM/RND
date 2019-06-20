@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="AutomationTest(failed)">
-    <parameter name="testBrowser" value="internet"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.appname.TestNGPrograms.DataProviderRND5">
+      <class name="com.appname.api.twitter.SampleTest">
         <methods>
-          <include name="setData"/>
-          <include name="beforeClass"/>
-          <include name="beforeMethod"/>
-          <include name="afterClass"/>
-          <include name="beforeSuite"/>
-          <include name="beforeTest"/>
-          <include name="afterMethod"/>
-          <include name="afterSuite"/>
-          <include name="afterTest"/>
+          <include name="createTweet"/>
         </methods>
-      </class> <!-- com.appname.TestNGPrograms.DataProviderRND5 -->
+      </class> <!-- com.appname.api.twitter.SampleTest -->
     </classes>
-  </test> <!-- AutomationTest(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

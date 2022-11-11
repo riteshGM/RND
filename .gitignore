@@ -5,3 +5,18 @@ test-output/old
 test-output/Default suite/
 /test-output/
 test-output/old/Default suite
+/target/
+test-output/Default suite/Default test.html
+test-output/Default suite/Default test.xml
+test-output/emailable-report.html
+test-output/index.html
+test-output/old/Default suite/classes.html
+test-output/old/Default suite/methods-alphabetical.html
+test-output/old/Default suite/methods-not-run.html
+test-output/old/Default suite/methods.html
+test-output/old/Default suite/testng.xml.html
+test-output/old/Default suite/toc.html
+test-output/old/index.html
+test-output/testng-reports.css
+test-output/testng-reports.js
+test-output/testng-results.xml

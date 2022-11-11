@@ -8,6 +8,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 
 
+
 public class ExtentReportRnD2_41_2 extends ExtentReportStruct{
 
 	public static final Logger log = Logger.getLogger(ExtentReportRnD2_41_2.class.getName());

@@ -16,7 +16,6 @@ public class ArrayListLoopExample {
         List<String> arrayListObj1 = Arrays.asList(new String []{"bb","zz","a","b"});
         System.out.println(arrayListObj1);
         
-        
         List<String> arrayObj = Arrays.asList("He","Is","A","Jolly","Good","Fellow");
         //Using Advance For Loop
         for (String eachWord : arrayObj) {

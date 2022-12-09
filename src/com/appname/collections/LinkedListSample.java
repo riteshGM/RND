@@ -37,6 +37,8 @@ public class LinkedListSample {
 		System.out.println(myList.contains("element"));
 		
 		
+		
+		
 	}
 
 }

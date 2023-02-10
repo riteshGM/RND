@@ -1,5 +1,6 @@
 package com.appname.seleniumprograms;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -24,7 +25,7 @@ public class FindElementsExplicitWait {
 			driver.get("http://www.seleniumeasy.com/test/basic-checkbox-demo.html");
 			driver.manage().window().maximize();
 			By locator = By.xpath("//input[@class='cb1-element']");
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 			
 			List <WebElement> myIput = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 			System.out.println("Total Elements "+myIput.size());

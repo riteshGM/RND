@@ -14,10 +14,13 @@ public class HashMapLoopExample {
     hashmap.put("Key2", "Value2");
     System.out.println("Iterating or looping map using entrySet and foreach loop");
     // For each loop and entrySet() method
-    Set<Map.Entry<String, String>> entrySet = hashmap.entrySet();
-    for (Map.Entry<String,String> entry : entrySet) {
-        System.out.println("key: " + entry.getKey() + " value: " + entry.getValue());
+    
+    
+    for (Map.Entry<String,String> eachEntry : hashmap.entrySet()) {
+        System.out.println("key: " + eachEntry.getKey() + " value: " + eachEntry.getValue());
     }
+    
+    //This is Easiest Way
     // for each loop and keySet()
     for (String eachKey : hashmap.keySet()){
     	System.out.println("Key is "+eachKey+" Value is "+hashmap.get(eachKey));

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="tests">
-  
-  <test name="AutomationTest">
-    <classes>
-      <class name="com.appname.TestNGPrograms.TestNGSequence"/>
-    </classes> 
-  </test> <!-- AutomationTest -->
+	<groups>
+		<run>
+			<include name="functional" />
+		</run>
+	</groups>
+	<test name="AutomationTest">
+		<classes>
+			<class name="com.appname.TestNGPrograms.TestNGSequence" />
+		</classes>
+	</test> <!-- AutomationTest -->
 
 </suite> <!-- Suite -->

@@ -1,3 +1,4 @@
+
 package com.appname.impprogs;
 
 
@@ -16,7 +17,8 @@ public class FindFirstNonRepeatedCharInString {
 		//String input ="teeter";
 		
 		String input ="treetAaer";
-
+		input.length();
+		
 		for(char i :input.toCharArray()){
 		if(input.indexOf(i)==input.lastIndexOf(i)){
 		System.out.println(i);

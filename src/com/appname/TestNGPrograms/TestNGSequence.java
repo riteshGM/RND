@@ -14,9 +14,6 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
 
 public class TestNGSequence {
-
-	
-
 	
 	   // test case 1
 	   @Test
@@ -94,6 +91,8 @@ public class TestNGSequence {
 	    public void testMethod(String data) {
 	        System.out.println("Data is: " + data);
 	    }
+		
+		
 	   
 
 	

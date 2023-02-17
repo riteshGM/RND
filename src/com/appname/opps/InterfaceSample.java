@@ -1,7 +1,15 @@
 package com.appname.opps;
 
 public interface InterfaceSample {
-String dataMember="Ritesh";
+public static final String dataMember="Ritesh";
 
-public int getName();
+int getName();
+
+ default  void my_method() {
+	System.out.println("Called from Default Method");
+}
+ 
+ default void My_method_2() {
+	 System.out.println("Second Default Method");
+ }
 }

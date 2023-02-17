@@ -17,6 +17,7 @@ public class TakeScreens {
 		File file =screen.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(file,new File ("FileLocation.png"));
 		
+		
 	}
 
 }

@@ -1,12 +1,24 @@
 package com.appname.ExceptionHandling;
 
-public class AdvanceExceptionHandling extends Exception {
+import net.bytebuddy.implementation.bytecode.Throw;
+
+public class AdvanceExceptionHandling extends RuntimeException {
 	
 	public AdvanceExceptionHandling(String str){
 		super(str);
 	}
 	
+	public AdvanceExceptionHandling() {
+		super();
+	}
 	
+	public AdvanceExceptionHandling(Throwable cause) {
+		super(cause);
+	}
+	
+	public AdvanceExceptionHandling(String str, Throwable cause) {
+		super (str, cause);
+	}
 	
 	
 	public static void main(String args[]){

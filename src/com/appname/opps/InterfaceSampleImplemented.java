@@ -1,5 +1,6 @@
 package com.appname.opps;
 
+
 public class InterfaceSampleImplemented implements InterfaceSample{
 
 	
@@ -11,5 +12,8 @@ public class InterfaceSampleImplemented implements InterfaceSample{
 
 	public static void main (String args[]){
 		System.out.println(dataMember);
+		//Calling Default Mehtod
+		new InterfaceSampleImplemented().my_method();
+		new InterfaceSampleImplemented().My_method_2();
 	}
 }

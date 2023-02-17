@@ -4,6 +4,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Find Max in Array
+ * @author rites
+ *
+ */
 public class FindLeaderInArray {
 	public static void main(String args []){
 		int [] array = {1,2,17,2,22,2,3,1,2};

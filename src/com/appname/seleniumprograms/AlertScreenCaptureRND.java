@@ -10,11 +10,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -34,9 +31,6 @@ public class AlertScreenCaptureRND {
 	 public void bla() throws AWTException, IOException {
 	 driver.findElement(By.name("cusid")).sendKeys("123456");
 	 driver.findElement(By.name("submit")).click();
-	 
-	 Alert obj = null;
-	 //obj.accept();
 	 
 	 // Trigger the alert
 	 BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));

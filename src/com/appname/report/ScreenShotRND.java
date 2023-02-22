@@ -1,4 +1,4 @@
-package com.appname.seleniumprograms;
+package com.appname.report;
 
 import java.io.File;
 import java.io.FileNotFoundException;

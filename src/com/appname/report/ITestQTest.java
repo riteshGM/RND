@@ -110,14 +110,16 @@ public class ITestQTest {
 		}
 	}
 
+	/*
 	public void logSkip(String reportMessage, Step stepToExecute, ExtentTest child) {
 		child.log(LogStatus.SKIP, stepToExecute.getElement(), reportMessage);
 	}
 
+
 	public void logSkip(Step stepToExecute, ExtentTest child) {
 		child.log(LogStatus.SKIP, stepToExecute.getElement(), getReportMessage(stepToExecute.getType(), "skip"));
 	}
-
+*/
 	/**
 	 * @author RiteshMansukhani Description: This Step Identifies Report Message
 	 *         as per step type and/or action

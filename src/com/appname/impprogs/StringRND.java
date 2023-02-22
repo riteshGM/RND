@@ -1,4 +1,4 @@
-package com.appname.seleniumprograms;
+package com.appname.impprogs;
 
 import org.testng.annotations.Test;
 

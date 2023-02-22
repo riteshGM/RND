@@ -1,7 +1,5 @@
 package com.appname.ExceptionHandling;
 
-import net.bytebuddy.implementation.bytecode.Throw;
-
 public class AdvanceExceptionHandling extends RuntimeException {
 	
 	public AdvanceExceptionHandling(String str){

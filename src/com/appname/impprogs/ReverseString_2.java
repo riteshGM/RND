@@ -23,7 +23,7 @@ public class ReverseString_2 {
 		 String [] array=text.split(" ");
 		 int commaPosition = -1;
 		 ArrayList<String> reversedWordsList = new ArrayList<String>();
-		 String revserseString;
+		 String revserseString ="";
 		 for (String eachString : array) {
 			 //ArrayList<String> reverseEachWordCharList = new ArrayList<String>();
 			// char[] eachWordArray = eachString.toCharArray()

@@ -1,8 +1,6 @@
 package com.appname.impprogs;
 
 /*
-You're creating a game with some amusing mini-games, and you've decided to make a simple variant of the game Mahjong.
-
 In this variant, players have a number of tiles, each marked 0-9. The tiles can be grouped into pairs or triples of the same tile. For example, if a player has "33344466", the player's hand has a triple of 3s, a triple of 4s, and a pair of 6s. Similarly, "55555777" has a triple of 5s, a pair of 5s, and a triple of 7s.
 
 A "complete hand" is defined as a collection of tiles where all the tiles can be grouped into any number of triples (zero or more) and exactly one pair, and each tile is used in exactly one triple or pair.
@@ -49,93 +47,100 @@ complete(tiles_17) => False
 
 Complexity Variable
 N - Number of tiles in the input string
-*/
+ */
 
 import java.io.*;
 import java.util.*;
 
 /**
- * Asked in Karat Interview 18-02-2023
+ * Asked in Karat Interview 18-02-2023 Rules - Presence in Triple or pair is
+ * accepted - not necessarily consecutive 
+ * 1 pair is compulsory
+ * No Triple present is okay
+ * If remainder Occurrence is single -
+ * return False
+ * 
  * @author rites
  *
  */
 public class StringPuzzle1_BNY {
-  
-  public boolean checkStringCompleteHand(String input){
-    
-    String []inputArray = input.split("");
-    
-    for (String eachLitteral: inputArray) {
-      int occurenceCount=0;
-      int trippletCount=0;
-      int pairCount = 0;
-      int remainderCount=0;
-      boolean pairFound = false;
-      System.out.println(eachLitteral);
-      //Find Occurence of Each Litteral in String
-      for(String loopEach:inputArray){
-        if(eachLitteral.equals(loopEach)){
-          System.out.println("Found "+eachLitteral);
-          occurenceCount++;
-        }
-        System.out.println("Found "+eachLitteral+ " "+occurenceCount+" times");
-      }
-      //This Position we have Occurence Count
-      
-      if(occurenceCount>=3){
-        //check if Triple
-        for(int i=occurenceCount;i<3;){
-          i=i-3;
-          if(i>0){
-            trippletCount++;
-            remainderCount=i;
-          }
-        }  
-      }
-      
-      System.out.println("Total Triple Found for "+eachLitteral+ " "+trippletCount);
-      if(remainderCount>=2||occurenceCount>=2){
-        int needtoCheckCount = 0;
-        if(trippletCount>0){
-          needtoCheckCount=remainderCount;
-        }else{
-          needtoCheckCount= occurenceCount;
-        }
-        //Check for Pair
-        for(int j=needtoCheckCount;j>0;){
-          j=j-2;
-          if(j>0 && !pairFound){
-            pairCount++;
-            pairFound=true;
-          }else{
-            return false;
-          }
-          
-          
-        } 
-      }
-    }
-    
-    return true;
-    
-  }
-  public static void main(String[] argv) {
-    String tiles_1 = "88844";
-    String tiles_2 = "99";
-    String tiles_3 = "55555";
-    String tiles_4 = "22333333";
-    String tiles_5 = "73797439949499477339977777997394947947477993";
-    String tiles_6 = "111333555";
-    String tiles_7 = "42";
-    String tiles_8 = "888";
-    String tiles_9 = "100100000";
-    String tiles_10 = "346664366";
-    String tiles_11 = "8999998999898";
-    String tiles_12 = "17610177";
-    String tiles_13 = "600061166";
-    String tiles_14 = "6996999";
-    String tiles_15 = "03799449";
-    String tiles_16 = "64444333355556";
-    String tiles_17 = "7";
-  }
+
+	public static boolean checkStringCompleteHand(String input) {
+		String[] inputArray = input.split("");
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		// Get Count in HashMap
+		for (String eachString : inputArray) {
+			// System.out.println(eachString);
+			if (map.get(eachString) == null) {
+				// First Time Entry
+				map.put(eachString, 1);
+			} else {
+				map.put(eachString, map.get(eachString) + 1);
+			}
+		}
+		System.out.println(map);
+		// Identify if %3 ==0 and %2==0
+		boolean pairFound = false;
+		for (String eachKey : map.keySet()) {
+			int count = map.get(eachKey);
+			if (count % 3 != 0) {
+				int tripleCount = count/3;
+				count = count % 3;
+				System.out.println("Count Remainder After Checking Triplet for " + eachKey + " is " + count);
+				if (count % 2 != 0) {
+					count = count % 2;
+					System.out.println("Count Remainder After Checking Pair for " + eachKey + " is " + count);
+					return false;
+				}else {
+						pairFound = true;
+				}
+			}
+		}
+		if(pairFound) {
+			return true;	
+		}else {
+			return false;
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		String tiles_1 = "88844";
+		String tiles_2 = "99";
+		String tiles_3 = "55555";
+		String tiles_4 = "22333333";
+		String tiles_5 = "73797439949499477339977777997394947947477993";
+		String tiles_6 = "111333555";
+		String tiles_7 = "42";
+		String tiles_8 = "888";
+		String tiles_9 = "100100000";
+		String tiles_10 = "346664366";
+		String tiles_11 = "8999998999898";
+		String tiles_12 = "17610177";
+		String tiles_13 = "600061166";
+		String tiles_14 = "6996999";
+		String tiles_15 = "03799449";
+		String tiles_16 = "64444333355556";
+		String tiles_17 = "7";
+
+		System.out.println("Tiles_1 is Complete Hand " + checkStringCompleteHand(tiles_1));
+		System.out.println("Tiles_2 is Complete Hand " + checkStringCompleteHand(tiles_2));
+		System.out.println("Tiles_3 is Complete Hand " + checkStringCompleteHand(tiles_3));
+		System.out.println("Tiles_4 is Complete Hand " + checkStringCompleteHand(tiles_4));
+		System.out.println("Tiles_5 is Complete Hand " + checkStringCompleteHand(tiles_5));
+		System.out.println("Tiles_6 is Complete Hand " + checkStringCompleteHand(tiles_6));
+		System.out.println("Tiles_7 is Complete Hand " + checkStringCompleteHand(tiles_7));
+		System.out.println("Tiles_8 is Complete Hand " + checkStringCompleteHand(tiles_8));
+		System.out.println("Tiles_9 is Complete Hand " + checkStringCompleteHand(tiles_9));
+		System.out.println("Tiles_10 is Complete Hand " + checkStringCompleteHand(tiles_10));
+		System.out.println("Tiles_11 is Complete Hand " + checkStringCompleteHand(tiles_11));
+		System.out.println("Tiles_12 is Complete Hand " + checkStringCompleteHand(tiles_12));
+		System.out.println("Tiles_13 is Complete Hand " + checkStringCompleteHand(tiles_13));
+		System.out.println("Tiles_14 is Complete Hand " + checkStringCompleteHand(tiles_14));
+		System.out.println("Tiles_15 is Complete Hand " + checkStringCompleteHand(tiles_15));
+		System.out.println("Tiles_16 is Complete Hand " + checkStringCompleteHand(tiles_16));
+		System.out.println("Tiles_17 is Complete Hand " + checkStringCompleteHand(tiles_17));
+		System.out.println(checkStringCompleteHand("88881118"));
+		
+	}
 }

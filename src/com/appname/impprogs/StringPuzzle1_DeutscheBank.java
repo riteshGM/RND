@@ -1,8 +1,5 @@
 package com.appname.impprogs;
 
-import java.util.HashMap;
-import java.util.Scanner;
-
 /**
  * Write A Program to get char followed by count - maintain the insertion order
  * e.g. aabbbccdaaaa should o/p a2b3c2d1a4
@@ -14,10 +11,6 @@ import java.util.Scanner;
 public class StringPuzzle1_DeutscheBank {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// Scanner scan = new Scanner(System.in);
-
-		// String input = scan.nextLine();
 		String input = "aananansnnanansnnnnsnnsnsnsssss";
 		System.out.println(input);
 		int counter = 0;

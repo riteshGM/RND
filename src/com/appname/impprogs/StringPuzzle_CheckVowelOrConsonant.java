@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * A Char is called vowel if it is either of 'a' 'e' 'i' 'o' 'u' otherwise it is consonent
    Do not worry about special chars here
- * @author rites
+ * @author Ritesh Mansukhani
  *
  */
 public class StringPuzzle_CheckVowelOrConsonant {
@@ -12,6 +12,7 @@ public class StringPuzzle_CheckVowelOrConsonant {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.nextLine();
+		scanner.close();
 		input = input.toLowerCase();
 		input = input.replace(" ", "");
 		System.out.println(input);

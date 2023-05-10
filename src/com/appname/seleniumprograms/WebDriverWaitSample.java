@@ -38,6 +38,9 @@ public class WebDriverWaitSample {
 				fluentWait.until(ExpectedConditions.alertIsPresent());
 				fluentWait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("mapp"), "Ritesh"));
 		
+				
+				
+				ExpectedConditions.
 		
 	}
 

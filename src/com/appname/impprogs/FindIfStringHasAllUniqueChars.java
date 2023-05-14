@@ -10,7 +10,7 @@ public class FindIfStringHasAllUniqueChars {
 		boolean isRepeated = false;
 		
 		for(char eachChar : input.toCharArray()){
-			if(!(input.indexOf(eachChar)==input.lastIndexOf(eachChar))){
+			if(input.indexOf(eachChar)!=input.lastIndexOf(eachChar)){
 				System.out.println("Repeated Char Found ["+eachChar+"]");
 				isRepeated = true;
 				break;

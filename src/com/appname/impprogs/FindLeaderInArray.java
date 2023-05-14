@@ -13,8 +13,8 @@ public class FindLeaderInArray {
 	public static void main(String args []){
 		int [] array = {1,2,17,2,22,2,3,1,2};
 		
-		int max = array[array.length-1];
-		for (int i = array.length-2; i>=0; i--){
+		int max = array[0];
+		for (int i = 1; i<array.length; i++){
 			if(max<array[i]){
 				max = array[i];
 			}

@@ -2,7 +2,7 @@ package com.appname.collections;
 
 import java.util.Arrays;
 
-public class DuplicatesInArrayWithoutUsingCollections2 {
+public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop {
 
 	public static void main(String args[]) {
 		// int [] array = {1,2,3,1,2,1,2,3,1,3,2};

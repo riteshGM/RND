@@ -2,14 +2,19 @@ package com.appname.collections;
 
 import java.util.Arrays;
 
-//TODO need to revisit this
+/**
+ * Using int[] only.
+ * @author rites
+ * Asked in BNY Mellon Interview
+ *
+ */
 
-public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop2 {
+public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop {
 
 	public static void main(String args[]) {
 		//int [] array = {1,2,3,1,2,1,2,3,1,3,2};
 		//int[] array = { 1, 2, 3, 2, 2, 2 };
-		int[]array = {1,2,3,3,3,1};
+		int[]array = {1,2,3,3,3,1,4};
 
 		Arrays.sort(array);
 
@@ -19,12 +24,13 @@ public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop2 {
 		}
 
 		int outputArr [] = new int[array.length];
-		System.out.println("Before Searching");
+		System.out.println();
+		System.out.print("Before Searching ");
 		for(int each : outputArr ) {
 			System.out.print(each);
 		}
 		
-		
+		System.out.println();
 		boolean print = true;
 		int outputArrayIndex = 0;
 		for(int index =0; index < array.length ; index++) {
@@ -32,6 +38,7 @@ public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop2 {
 			if(index == array.length-1) {
 				if(print) {
 					outputArr[outputArrayIndex] = array[index];
+					outputArrayIndex++;
 				}else {
 					//do Nothing
 					//outputArrayIndex--;
@@ -50,14 +57,14 @@ public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop2 {
 			}
 		}
 		
-		
-		System.out.println("After Searching");
+		System.out.println();
+		System.out.print("After Searching ");
 		for(int each : outputArr ) {
 			System.out.print(each);
 			
 		}
-		
-		System.out.println("Total Elements found unique"+outputArrayIndex);
+		System.out.println();
+		System.out.println("Total Elements found unique "+outputArrayIndex);
 		//Save Output finally
 		int finalArry[] = new int[outputArrayIndex];
 	
@@ -65,7 +72,5 @@ public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop2 {
 			finalArry[index] = outputArr[index];
 			System.out.print(finalArry[index]);
 		}
-		
-		
 	}
 }

@@ -104,7 +104,15 @@
 		    <groupId>io.rest-assured</groupId>
 		    <artifactId>rest-assured</artifactId>
 		    <version>5.2.0</version>
-		</dependency>		
+		</dependency>	
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<!-- Added for FileUtils in ExtentReport-->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
+		</dependency>
+	
 	</dependencies>
 	<!--<build>
   		<plugins>

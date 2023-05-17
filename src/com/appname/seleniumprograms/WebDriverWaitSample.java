@@ -23,24 +23,22 @@ public class WebDriverWaitSample {
 		 */
 		
 		//WebDriver Wait - No polling
-		WebDriverWait wait = new WebDriverWait(driver, 3);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		WebElement ele = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("kandi")));
 		
 		//Fluent Wait - With Polling
 		FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver> (driver)
 				//.withTimeout(Duration.ofSeconds(5))
-				.withTimeout(10, TimeUnit.SECONDS)
+				.withTimeout(Duration.ofSeconds(3))
 				.ignoring(NoSuchElementException.class)
 				//.pollingEvery(Duration.ofSeconds(1))
-				.pollingEvery(500, TimeUnit.MILLISECONDS)
+				//.pollingEvery(500, TimeUnit.MILLISECONDS)
+				.pollingEvery(Duration.ofMillis(500))
 				.withMessage("Element Not Found");
 			
 				fluentWait.until(ExpectedConditions.alertIsPresent());
 				fluentWait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("mapp"), "Ritesh"));
 		
-				
-				
-				ExpectedConditions.
 		
 	}
 

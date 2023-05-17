@@ -1,4 +1,4 @@
-package com.appname.impprogs;
+package com.appname.stringprograms;
 
 /**
  * Program to remove white spaces from a Sentence without using replace()

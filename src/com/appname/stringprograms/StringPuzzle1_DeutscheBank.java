@@ -1,4 +1,4 @@
-package com.appname.impprogs;
+package com.appname.stringprograms;
 
 /**
  * Write A Program to get char followed by count - maintain the insertion order

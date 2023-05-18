@@ -5,8 +5,9 @@ public class StringFirstRepeatedChar_WithoutUsingIndexOf {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String input = "Rtesh Manuii";
-
+		String input = "Ritesh Mansukhanii";
+		input = input.toLowerCase();
+		input = input.replaceAll(" ", "");
 		char array[] = input.toCharArray();
 		boolean firstDuplicateFound = false;
 		for (int outer = 0; outer < array.length; outer++) {

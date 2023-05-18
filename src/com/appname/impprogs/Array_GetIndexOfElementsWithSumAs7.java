@@ -1,6 +1,6 @@
 package com.appname.impprogs;
 
-public class GetIndexOfElementsWithSumAs7 {
+public class Array_GetIndexOfElementsWithSumAs7 {
 
 	public static void main(String args[]) {
 		int input[] = { 1, 2, 5, 3, 1, 6, 1, 1 };

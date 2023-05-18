@@ -9,7 +9,7 @@ import java.util.Set;
  * @author rites
  *
  */
-public class FindLeaderInArray {
+public class Array_FindLeaderInArray {
 	public static void main(String args []){
 		int [] array = {1,2,17,2,22,2,3,1,2};
 		

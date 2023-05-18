@@ -1,6 +1,6 @@
 package com.appname.impprogs;
 
-public class ArrayRemoveDuplicate {
+public class Array_RemoveDuplicate {
 
 	public static void main(String[] args) {
 		/**

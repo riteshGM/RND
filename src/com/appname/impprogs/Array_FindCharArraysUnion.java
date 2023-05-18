@@ -10,7 +10,7 @@ import java.util.Set;
  *
  */
 
-public class FindCharArraysUnion {
+public class Array_FindCharArraysUnion {
 	public static void main(String args []){
 		int[] x= {2,5,3,7};
 		int[] y={5,2,9,0,1};

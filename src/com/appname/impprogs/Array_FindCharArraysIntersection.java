@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FindCharArraysIntersection {
+public class Array_FindCharArraysIntersection {
 	public static void main(String args []){
 		int[] x= {2,5,3,7,2};
 		int[] y={5,2,9,0,2,1};

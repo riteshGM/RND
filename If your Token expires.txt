@@ -1,0 +1,18 @@
+If your Token expires
+
+Open Github Account in Browser 
+
+Settings>>Developer Settings >> Personal Access Token >> Tokens classic
+
+
+in your git command line 
+
+git remote remove origin
+git remote add origin https://[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME]
+{(Replace the square brackets and what's between them with your corresponding details. The part after the the @ is the same as the repository url without https://)}
+
+e.g.
+git remote add origin https://<token>@github.com/riteshGM/RND.git
+
+Then finally push your changes
+git push --set-upstream origin master

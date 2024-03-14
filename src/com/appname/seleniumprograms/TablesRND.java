@@ -99,6 +99,7 @@ public class TablesRND {
 				}
 			}
 			else{
+				//Ritesh
 				switch(actionType) {
 				case "getText" :
 					for (WebElement ele: element){

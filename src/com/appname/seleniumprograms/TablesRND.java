@@ -87,6 +87,7 @@ public class TablesRND {
 		ArrayList columnDataListFinal = new ArrayList();  //Used to Hold Final Data which will be returned back to calling program
 		//Identify actionType (getText|getAttribute|click) and perform the action accordingly 
 		if (!element.isEmpty()){
+			//Ritesh
 			if(actionType.contains("getAttribute")){
 				System.out.println("Action Obtained initially as "+actionType);
 				//logic for  fetching the string between  "<action>"

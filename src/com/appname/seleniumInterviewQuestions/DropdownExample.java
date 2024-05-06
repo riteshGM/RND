@@ -1,15 +1,10 @@
 package com.appname.seleniumInterviewQuestions;
 
 import java.time.Duration;
-import java.util.Optional;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v110.emulation.Emulation;
 import org.openqa.selenium.support.ui.Select;
 
 public class DropdownExample {

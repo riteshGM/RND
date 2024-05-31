@@ -17,6 +17,7 @@ public class StringFirstRepeatedChar_WithoutUsingIndexOf {
 				break;
 			}
 			for (int index = outer + 1; index < array.length; index++) {
+				
 				if (array[outer] == array[index]) {
 					System.out.println("First repeated Char found as " + array[index] + " at index " + index);
 					firstDuplicateFound = true;

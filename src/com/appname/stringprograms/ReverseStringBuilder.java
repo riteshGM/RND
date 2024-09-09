@@ -12,6 +12,7 @@ public class ReverseStringBuilder {
 		//Reversed
 		StringBuilder reverseStr = str.reverse();
 		System.out.println("Reversed String :" +reverseStr);
+		
 
 	}
 

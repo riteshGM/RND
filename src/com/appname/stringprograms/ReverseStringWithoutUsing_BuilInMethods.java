@@ -3,7 +3,7 @@ package com.appname.stringprograms;
 public class ReverseStringWithoutUsing_BuilInMethods {
 	
 	
-	public String reverseString(String input) {
+	public static String reverseString(String input) {
 		if(input.isEmpty()) {
 			return input;
 		}
@@ -13,7 +13,7 @@ public class ReverseStringWithoutUsing_BuilInMethods {
 		
 		String input = "ritesh";
 		
-		System.out.println(input.substring(1));
+		System.out.println(reverseString(input));
 		
 		
 

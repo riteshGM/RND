@@ -7,7 +7,7 @@ public class ReverseWordByWord {
 		String given = "Learning oops concepts in Java";
 
 		String reversed = "";
-
+/*
 		// Create words Array
 		String[] words = given.split(" ");
 		for (int k = 0; k < words.length; k++) {
@@ -22,6 +22,26 @@ public class ReverseWordByWord {
 				reversed = reversed + chArray[j];
 			}
 		}
+		
+	*/	
+		String[] inputArr = given.split(" ");
+		
+		for(int k=inputArr.length-1;k>=0;k-- ) {
+			String eachString = inputArr[k];
+			reversed = reversed+ReverseWordByWord.reverse(eachString)+" ";
+		}
+		
 		System.out.println(reversed);
 	}
+	
+	public static String reverse(String input) {
+		if(input.isEmpty()) {
+			return input;
+		}
+		
+		return input.substring(input.length()-1)+
+				reverse(input.substring(0,input.length()-1));
+	}
+	
+	
 }

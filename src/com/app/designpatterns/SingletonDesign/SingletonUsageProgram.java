@@ -1,4 +1,4 @@
-package com.app.designpatterns;
+package com.app.designpatterns.SingletonDesign;
 
 public class SingletonUsageProgram {
 

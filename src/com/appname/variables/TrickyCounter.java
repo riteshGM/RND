@@ -3,7 +3,7 @@ package com.appname.variables;
 public class TrickyCounter {
 	
 	public static void main (String args[]) {
-		//Integer Catching -128 to 127
+		//Integer Catching Concept -128 to 127 (Naveen Sir)
 		/**
 		 * If Integer is initialzed between -128 to 127 - object points to same reference in heap memory
 		 */

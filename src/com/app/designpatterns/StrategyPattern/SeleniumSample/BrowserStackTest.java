@@ -84,7 +84,7 @@ public class BrowserStackTest implements WebDriverStrategy {
 							e.printStackTrace();
 						}
 				default :
-								throw new IllegalArgumentException();
+								throw new IllegalArgumentException("Browser Name Supplied is Invalid"+browserName);
 				}
 			}
 	

@@ -20,7 +20,7 @@ public class LocalTest implements WebDriverStrategy{
 		case "firefox" :
 						return new FirefoxDriver();
 		default :
-						throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Browser Name Supplied is Invalid"+browserName);
 		}
 	}
 }

@@ -28,7 +28,7 @@ switch (browserName.toLowerCase()) {
 						fo.addArguments("--headless");
 						return new FirefoxDriver(fo);
 		default :
-						throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Browser Name Supplied is Invalid"+browserName);
 		}
 	}
 	

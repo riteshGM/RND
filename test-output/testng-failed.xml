@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" parallel="tests" name="AutomationTest(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.appname.TestNGPrograms.TestNGProg_RetryMechanism">
+      <class name="com.app.designpatterns.StrategyPattern.SeleniumSample.ClientClass">
         <methods>
-          <include name="Test1"/>
+          <include name="myMethod"/>
         </methods>
-      </class> <!-- com.appname.TestNGPrograms.TestNGProg_RetryMechanism -->
+      </class> <!-- com.app.designpatterns.StrategyPattern.SeleniumSample.ClientClass -->
     </classes>
-  </test> <!-- AutomationTest(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

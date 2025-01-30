@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.appname.seleniumprograms.FindElementsExplicitWait">
+      <class name="com.app.designpatterns.StrategyPattern.SeleniumSample.ClientClass">
         <methods>
-          <include name="testColum"/>
+          <include name="myMethod"/>
         </methods>
-      </class> <!-- com.appname.seleniumprograms.FindElementsExplicitWait -->
+      </class> <!-- com.app.designpatterns.StrategyPattern.SeleniumSample.ClientClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

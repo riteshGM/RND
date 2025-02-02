@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.app.designpatterns.StrategyPattern.SeleniumSample.ClientClass">
+      <class name="com.app.designpatterns.RemoveSwitchAndIf.MyTest">
         <methods>
-          <include name="myMethod"/>
+          <include name="myTest"/>
         </methods>
-      </class> <!-- com.app.designpatterns.StrategyPattern.SeleniumSample.ClientClass -->
+      </class> <!-- com.app.designpatterns.RemoveSwitchAndIf.MyTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

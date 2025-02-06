@@ -14,6 +14,12 @@ public class FunctionalInterfaceImpl {
 		};
 		
 		System.out.println("Printing Addition "+ obj.add(1,2));
+		
+		
+		FunctionalInterfaceSample obj2 = (i,j) -> i+j;
+		System.out.println(obj2.add(1, 5));
 	}
+	
+	
 	
 }

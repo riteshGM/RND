@@ -4,8 +4,8 @@
   <artifactId>RND</artifactId>
   <version>0.0.1-SNAPSHOT</version>
     <properties>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <!-- DEFAULT - If you do not pass any value with mvn test, then, this value
             will be used -->
         <suiteFile>testng</suiteFile>

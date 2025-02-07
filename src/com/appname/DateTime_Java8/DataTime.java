@@ -11,7 +11,7 @@ public class DataTime {
 		LocalTime time = LocalTime.now();
 		 DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm a");
 		System.out.println(time.format(format));
-
+		
 	}
 
 }

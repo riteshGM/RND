@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.app.designpatterns.RemoveSwitchAndIf.MyTest">
+      <class name="com.appname.api.twitter.SampleTest">
         <methods>
-          <include name="myTest"/>
+          <include name="deleteTweet"/>
+          <include name="createTweet"/>
+          <include name="getLastTweet"/>
         </methods>
-      </class> <!-- com.app.designpatterns.RemoveSwitchAndIf.MyTest -->
+      </class> <!-- com.appname.api.twitter.SampleTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

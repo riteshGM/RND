@@ -17,6 +17,7 @@ public class DuplicatesInArrayWithoutUsingCollectionsSingleLoop {
 		int[]array = {1,2,3,3,3,1,4};
 
 		Arrays.sort(array);
+		
 
 		System.out.println("Sorted Array input is");
 		for (int i = 0; i < array.length; i++) {

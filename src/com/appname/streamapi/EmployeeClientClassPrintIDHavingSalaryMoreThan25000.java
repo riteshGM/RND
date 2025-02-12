@@ -10,7 +10,7 @@ import java.util.List;
  *
  */
 
-public class PrintIDHavingSalaryMoreThan25000 {
+public class EmployeeClientClassPrintIDHavingSalaryMoreThan25000 {
 
 
 	public static void main(String[] args) {

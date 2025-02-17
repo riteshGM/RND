@@ -31,6 +31,8 @@ public class TypeOfVariables {
 		System.out.println("Used local variable in Static Method staticMethod() "+localVariable);
 		System.out.println("Used Static Variable in Static Method staticMethod() "+staticVariable);
 		staticVariable = 15;
+		//Instance non Static Variable cannot be access in static method
+		//System.out.println(str);
 		System.out.println("Updated Static Varibale in Static Method staticMethod() "+staticVariable);
 		
 	}

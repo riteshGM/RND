@@ -11,7 +11,10 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -29,12 +32,12 @@ public class MergeExcel {
                     "C:\\excel2.xlsx"));
 
             // Create Workbook instance holding reference to .xlsx file
-            XSSFWorkbook workbook1 = new XSSFWorkbook(excellFile1);
-            XSSFWorkbook workbook2 = new XSSFWorkbook(excellFile2);
+            Workbook workbook1 = new XSSFWorkbook(excellFile1);
+            Workbook workbook2 = new XSSFWorkbook(excellFile2);
 
             // Get first/desired sheet from the workbook
-            XSSFSheet sheet1 = workbook1.getSheetAt(0);
-            XSSFSheet sheet2 = workbook2.getSheetAt(0);
+            Sheet sheet1 = workbook1.getSheetAt(0);
+            Sheet sheet2 = workbook2.getSheetAt(0);
 
             // add sheet2 to sheet1
             addSheet(sheet1, sheet2);
@@ -57,27 +60,27 @@ public class MergeExcel {
 
     }
 
-    public static void addSheet(XSSFSheet mergedSheet, XSSFSheet sheet) {
+    public static void addSheet(Sheet mergedSheet, Sheet sheet) {
         // map for cell styles
-        Map<Integer, XSSFCellStyle> styleMap = new HashMap<Integer, XSSFCellStyle>();
+        Map<Integer, CellStyle> styleMap = new HashMap<Integer, CellStyle>();
         
         // This parameter is for appending sheet rows to mergedSheet in the end
         int len = mergedSheet.getLastRowNum();
         for (int j = sheet.getFirstRowNum(); j <= sheet.getLastRowNum(); j++) {
 
-            XSSFRow row = sheet.getRow(j);
-            XSSFRow mrow = mergedSheet.createRow(len + j + 1);
+            Row row = sheet.getRow(j);
+            Row mrow = mergedSheet.createRow(len + j + 1);
 
             for (int k = row.getFirstCellNum(); k < row.getLastCellNum(); k++) {
-                XSSFCell cell = row.getCell(k);
-                XSSFCell mcell = mrow.createCell(k);
+                Cell cell = row.getCell(k);
+                Cell mcell = mrow.createCell(k);
 
                 if (cell.getSheet().getWorkbook() == mcell.getSheet()
                         .getWorkbook()) {
                     mcell.setCellStyle(cell.getCellStyle());
                 } else {
                     int stHashCode = cell.getCellStyle().hashCode();
-                    XSSFCellStyle newCellStyle = styleMap.get(stHashCode);
+                    CellStyle newCellStyle = styleMap.get(stHashCode);
                     if (newCellStyle == null) {
                         newCellStyle = mcell.getSheet().getWorkbook()
                                 .createCellStyle();
@@ -88,22 +91,22 @@ public class MergeExcel {
                 }
 
                 switch (cell.getCellType()) {
-                case HSSFCell.CELL_TYPE_FORMULA:
+                case FORMULA:
                     mcell.setCellFormula(cell.getCellFormula());
                     break;
-                case HSSFCell.CELL_TYPE_NUMERIC:
+                case NUMERIC:
                     mcell.setCellValue(cell.getNumericCellValue());
                     break;
-                case HSSFCell.CELL_TYPE_STRING:
+                case STRING:
                     mcell.setCellValue(cell.getStringCellValue());
                     break;
-                case HSSFCell.CELL_TYPE_BLANK:
-                    mcell.setCellType(HSSFCell.CELL_TYPE_BLANK);
+                case BLANK:
+                    mcell.setBlank();
                     break;
-                case HSSFCell.CELL_TYPE_BOOLEAN:
+                case BOOLEAN:
                     mcell.setCellValue(cell.getBooleanCellValue());
                     break;
-                case HSSFCell.CELL_TYPE_ERROR:
+                case ERROR:
                     mcell.setCellErrorValue(cell.getErrorCellValue());
                     break;
                 default:

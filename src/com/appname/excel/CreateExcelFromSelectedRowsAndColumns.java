@@ -6,6 +6,11 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -25,13 +30,13 @@ public class CreateExcelFromSelectedRowsAndColumns {
             int[] icols = { 0,1, 2};
             
             // Create Workbook instance holding reference to .xlsx file
-            XSSFWorkbook workbook = new XSSFWorkbook(excellFile1);
+            Workbook workbook = new XSSFWorkbook(excellFile1);
 
             // Get first/desired sheet from the workbook
-            XSSFSheet sheet = workbook.getSheetAt(0);
+            Sheet sheet = workbook.getSheetAt(0);
 
             // add sheet2 to sheet1
-            XSSFWorkbook outWorkbook = getFilteredWorkBook(sheet, irows, icols);
+            Workbook outWorkbook = getFilteredWorkBook(sheet, irows, icols);
             
             
             
@@ -56,12 +61,12 @@ public class CreateExcelFromSelectedRowsAndColumns {
 
     }
 
-    private static XSSFWorkbook getFilteredWorkBook(XSSFSheet sheet,
+    private static Workbook getFilteredWorkBook(Sheet sheet,
             int[] irows, int[] icols) {
         // create New workbook 
-        XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet outSheet = workbook.createSheet();
-        Map<Integer, XSSFCellStyle> styleMap = new HashMap<Integer, XSSFCellStyle>();
+        Workbook workbook = new XSSFWorkbook();
+        Sheet outSheet = workbook.createSheet();
+        Map<Integer, CellStyle> styleMap = new HashMap<Integer, CellStyle>();
         int i = 0;
         
         // get rows with given row numbers 
@@ -70,8 +75,8 @@ public class CreateExcelFromSelectedRowsAndColumns {
                     && rowNum <= sheet.getLastRowNum()) {
                 
                 // create new row
-                XSSFRow outRow = outSheet.createRow(i);
-                XSSFRow row = sheet.getRow(rowNum);
+                Row outRow = outSheet.createRow(i);
+                Row row = sheet.getRow(rowNum);
                 int j = 0;
                 
                 // get columns with given column numbers
@@ -80,8 +85,8 @@ public class CreateExcelFromSelectedRowsAndColumns {
                             && colNum <= sheet.getRow(0).getLastCellNum()) {
                         
                         // create new column
-                        XSSFCell outCell = outRow.createCell(j);
-                        XSSFCell cell = row.getCell(colNum);
+                        Cell outCell = outRow.createCell(j);
+                        Cell cell = row.getCell(colNum);
                         if (cell != null) {
                             j++;
                             if (cell.getSheet().getWorkbook() == outCell
@@ -89,7 +94,7 @@ public class CreateExcelFromSelectedRowsAndColumns {
                                 outCell.setCellStyle(cell.getCellStyle());
                             } else {
                                 int stHashCode = cell.getCellStyle().hashCode();
-                                XSSFCellStyle newCellStyle = styleMap
+                                CellStyle newCellStyle = styleMap
                                         .get(stHashCode);
                                 if (newCellStyle == null) {
                                     newCellStyle = outCell.getSheet()
@@ -102,22 +107,22 @@ public class CreateExcelFromSelectedRowsAndColumns {
                             }
 
                             switch (cell.getCellType()) {
-                            case HSSFCell.CELL_TYPE_FORMULA:
+                            case FORMULA:
                                 outCell.setCellFormula(cell.getCellFormula());
                                 break;
-                            case HSSFCell.CELL_TYPE_NUMERIC:
+                            case NUMERIC:
                                 outCell.setCellValue(cell.getNumericCellValue());
                                 break;
-                            case HSSFCell.CELL_TYPE_STRING:
+                            case STRING:
                                 outCell.setCellValue(cell.getStringCellValue());
                                 break;
-                            case HSSFCell.CELL_TYPE_BLANK:
-                                outCell.setCellType(HSSFCell.CELL_TYPE_BLANK);
+                            case BLANK:
+                                outCell.setBlank();
                                 break;
-                            case HSSFCell.CELL_TYPE_BOOLEAN:
+                            case BOOLEAN:
                                 outCell.setCellValue(cell.getBooleanCellValue());
                                 break;
-                            case HSSFCell.CELL_TYPE_ERROR:
+                            case ERROR:
                                 outCell.setCellErrorValue(cell
                                         .getErrorCellValue());
                                 break;

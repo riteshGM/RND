@@ -23,13 +23,12 @@ public class DBBackDateMIFMUtil {
 				{
 					System.out.println("DB Connection is UP");
 				}
-				//ssqlStr ="SELECT COUNT(*) FROM H2H_BATCH WHERE FILE_ID=?";
 				
 				
 				  if (type == "MI")
-			                ssqlStr = "update VO_GHDCMIN set FRS_PRD_END_DTE = ? where MON_INF_IDR = ?";
+			                ssqlStr = "update MI_Table set FRS_PRD_END_DTE = ? where MON_INF_IDR = ?";
 			      if (type == "FM")
-			                ssqlStr = "update VO_GHDCFMN set FRS_PRD_END_DTE = ? where FML_MON_IDR = ?";
+			                ssqlStr = "update FM_Table set FRS_PRD_END_DTE = ? where FML_MON_IDR = ?";
 			      
 			     
 				

@@ -1,14 +1,18 @@
  package com.appname.excel;
 
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import org.apache.poi.hssf.usermodel.HSSFCell;
+
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import com.microsoft.schemas.office.visio.x2012.main.CellType;
 
 public class SearchExcel {
     public static void main(String[] args) {
@@ -18,10 +22,10 @@ public class SearchExcel {
                     "C:\\excel1.xlsx"));
             
             // Create Workbook instance holding reference to .xlsx file
-            XSSFWorkbook workbook = new XSSFWorkbook(excellFile);
+            Workbook workbook = new XSSFWorkbook(excellFile);
             
             // Get first/desired sheet from the workbook
-            XSSFSheet sheet = workbook.getSheetAt(0);
+            org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(0);
             
             
             // add sheet2 to sheet1
@@ -37,7 +41,7 @@ public class SearchExcel {
 
     }
         
-    public static ArrayList<Row> searchSheet(String searchText, XSSFSheet sheet) {
+    public static ArrayList<Row> searchSheet(String searchText, org.apache.poi.ss.usermodel.Sheet sheet) {
         // This parameter is for appending sheet rows to mergedSheet in the end
         
         Double doubleValue = null;
@@ -59,25 +63,25 @@ public class SearchExcel {
         //Iterate rows
         for (int j = sheet.getFirstRowNum(); j <= sheet.getLastRowNum(); j++) {
 
-            XSSFRow row = sheet.getRow(j);
+            Row row = sheet.getRow(j);
            
             //Iterate columns
             for (int k = row.getFirstCellNum(); k < row.getLastCellNum(); k++) {
-                XSSFCell cell = row.getCell(k);
+                Cell cell = row.getCell(k);
             
                //Search value based on cell type
                switch (cell.getCellType()) {
-                case XSSFCell.CELL_TYPE_NUMERIC:
+                case NUMERIC:
                     if(doubleValue != null && doubleValue.doubleValue() == cell.getNumericCellValue()) {
                         filteredRows.add(row);
                     }
                     break;
-                case XSSFCell.CELL_TYPE_STRING:
+                case STRING:
                     if(searchText != null && searchText.equals(cell.getStringCellValue())) {
                         filteredRows.add(row);
                     }
                     break;
-                case XSSFCell.CELL_TYPE_BOOLEAN:
+                case BOOLEAN:
                     if(booleanValue != null && booleanValue.booleanValue() == cell.getBooleanCellValue()) {
                         filteredRows.add(row);
                     }

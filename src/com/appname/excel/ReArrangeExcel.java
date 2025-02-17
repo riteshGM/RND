@@ -8,6 +8,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -26,13 +31,13 @@ public class ReArrangeExcel {
                     "C:\\inputExcel.xlsx"));
 
             // Create Workbook instance holding reference to .xlsx file
-            XSSFWorkbook workbook1 = new XSSFWorkbook(excellFile);
+            Workbook workbook1 = new XSSFWorkbook(excellFile);
 
             // Get first/desired sheet from the workbook
-            XSSFSheet mainSheet = workbook1.getSheetAt(0);
+            Sheet mainSheet = workbook1.getSheetAt(0);
 
             // re-arrange the sheet based on headers
-            XSSFWorkbook outWorkBook = reArrange(mainSheet, mapHeaders(outColumns, mainSheet));
+           Workbook outWorkBook = reArrange(mainSheet, mapHeaders(outColumns, mainSheet));
             excellFile.close();
             
 
@@ -51,23 +56,23 @@ public class ReArrangeExcel {
 
     }
 
-    public static XSSFWorkbook reArrange(XSSFSheet mainSheet,
+    public static Workbook reArrange(Sheet mainSheet,
             LinkedHashMap<String, Integer> map) {
 
         // get column headers
         Set<String> colNumbs = map.keySet();
 
         // Create New Workbook instance
-        XSSFWorkbook outWorkbook = new XSSFWorkbook();
-        XSSFSheet outSheet = outWorkbook.createSheet();
+        Workbook outWorkbook = new XSSFWorkbook();
+        Sheet outSheet = outWorkbook.createSheet();
 
         // map for cell styles
-        Map<Integer, XSSFCellStyle> styleMap = new HashMap<Integer, XSSFCellStyle>();
+        Map<Integer, CellStyle> styleMap = new HashMap<Integer, CellStyle>();
         
         int colNum = 0;
-        XSSFRow hrow = outSheet.createRow(0);
+        Row hrow = outSheet.createRow(0);
         for (String col : colNumbs) {
-            XSSFCell cell = hrow.createCell(colNum);
+            Cell cell = hrow.createCell(colNum);
             cell.setCellValue(col);
             colNum++;
         }
@@ -75,30 +80,30 @@ public class ReArrangeExcel {
         // This parameter is for appending sheet rows to mergedSheet in the end
         for (int j = mainSheet.getFirstRowNum() + 1; j <= mainSheet.getLastRowNum(); j++) {
 
-            XSSFRow row = mainSheet.getRow(j);
+            Row row = mainSheet.getRow(j);
 
             // Create row in main sheet
-            XSSFRow mrow = outSheet.createRow(j);
+            Row mrow = outSheet.createRow(j);
             int num = -1;
             for (String k : colNumbs) {
                 Integer cellNum = map.get(k);
                 num++;
                 if (cellNum != null) {
-                    XSSFCell cell = row.getCell(cellNum.intValue());
+                    Cell cell = row.getCell(cellNum.intValue());
 
                     // if cell is null then continue with next cell
                     if(cell == null) {
                         continue;
                     }
                     // Create column in main sheet
-                    XSSFCell mcell = mrow.createCell(num);
+                    Cell mcell = mrow.createCell(num);
 
                     if (cell.getSheet().getWorkbook() == mcell.getSheet()
                             .getWorkbook()) {
                         mcell.setCellStyle(cell.getCellStyle());
                     } else {
                         int stHashCode = cell.getCellStyle().hashCode();
-                        XSSFCellStyle newCellStyle = styleMap.get(stHashCode);
+                        CellStyle newCellStyle = styleMap.get(stHashCode);
                         if (newCellStyle == null) {
                             newCellStyle = mcell.getSheet().getWorkbook()
                                     .createCellStyle();
@@ -110,22 +115,22 @@ public class ReArrangeExcel {
 
                     // set value based on cell type
                     switch (cell.getCellType()) {
-                    case HSSFCell.CELL_TYPE_FORMULA:
+                    case FORMULA:
                         mcell.setCellFormula(cell.getCellFormula());
                         break;
-                    case HSSFCell.CELL_TYPE_NUMERIC:
+                    case NUMERIC:
                         mcell.setCellValue(cell.getNumericCellValue());
                         break;
-                    case HSSFCell.CELL_TYPE_STRING:
+                    case STRING:
                         mcell.setCellValue(cell.getStringCellValue());
                         break;
-                    case HSSFCell.CELL_TYPE_BLANK:
-                        mcell.setCellType(HSSFCell.CELL_TYPE_BLANK);
+                    case BLANK:
+                        mcell.setBlank();
                         break;
-                    case HSSFCell.CELL_TYPE_BOOLEAN:
+                    case BOOLEAN:
                         mcell.setCellValue(cell.getBooleanCellValue());
                         break;
-                    case HSSFCell.CELL_TYPE_ERROR:
+                    case ERROR:
                         mcell.setCellErrorValue(cell.getErrorCellValue());
                         break;
                     default:
@@ -141,9 +146,9 @@ public class ReArrangeExcel {
 
     // get Map of Required Headers and its equivalent column number 
     public static LinkedHashMap<String, Integer> mapHeaders(String[] outColumns,
-            XSSFSheet sheet) {
+            Sheet sheet) {
         LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
-        XSSFRow row = sheet.getRow(0);
+        Row row = sheet.getRow(0);
         for (String outColumn : outColumns) {
             Integer icol = null;
             for (int i = row.getFirstCellNum(); i < row.getLastCellNum(); i++) {

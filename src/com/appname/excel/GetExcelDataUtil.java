@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.apache.poi.ss.usermodel.*;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -51,34 +52,28 @@ public class GetExcelDataUtil {
 	
 	public static HashMap<String,String> getFlatData() throws FileNotFoundException, IOException{
 		HashMap<String,String> map = new HashMap<String,String>();
-		XSSFRow headerRow = getRow(0,0);
+		Row headerRow = getRow(0,0);
 		for (int rowNum =1;rowNum<=getTotalRows(0);rowNum++){
-			XSSFRow eachRow = getRow(0,rowNum);
+			Row eachRow = getRow(0,rowNum);
 				for(int colNum = 0 ; colNum<eachRow.getLastCellNum(); colNum++ ){
-					
 					String value;
-					
 					switch(eachRow.getCell(colNum).getCellType()){
+					//switch(eachRow.getCell(colNum)){
 					
-					case XSSFCell.CELL_TYPE_STRING:
-						map.put(headerRow.getCell(colNum).getStringCellValue(), eachRow.getCell(colNum).getStringCellValue());
+					//case XSSFCell.CELL_TYPE_STRING:
+					case  STRING:
+						map.put(headerRow.getCell(colNum).getStringCellValue(), eachRow.getCell(colNum).getStringCellValue());	
 						break;
-					case XSSFCell.CELL_TYPE_BOOLEAN:
-						if(eachRow.getCell(colNum).getBooleanCellValue())
-						map.put(headerRow.getCell(colNum).getStringCellValue(), "TRUE");
-						else
-						map.put(headerRow.getCell(colNum).getStringCellValue(), "FALSE");
+					case BOOLEAN:
+						map.put(headerRow.getCell(colNum).getStringCellValue(), String.valueOf(eachRow.getCell(colNum).getBooleanCellValue()));
 						break;	
-					case XSSFCell.CELL_TYPE_NUMERIC:
-						map.put(headerRow.getCell(colNum).getStringCellValue(),""+(eachRow.getCell(colNum).getNumericCellValue())+"");
+					case NUMERIC:
+						map.put(headerRow.getCell(colNum).getStringCellValue(),String.valueOf(eachRow.getCell(colNum).getNumericCellValue()));
 						break;	
 					default:
-						map.put(headerRow.getCell(colNum).getStringCellValue(), eachRow.getCell(colNum).getRawValue());
+                        System.out.print("UNKNOWN\t");
+                        map.put(headerRow.getCell(colNum).getStringCellValue(),""+(eachRow.getCell(colNum).getNumericCellValue())+"");
 					}
-					
-					
-					
-					;
 				}
 		}
 		return map;

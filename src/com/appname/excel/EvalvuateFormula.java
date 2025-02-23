@@ -15,10 +15,8 @@ public class EvalvuateFormula {
 		File file = new File("filepath");
 		try {
 			Workbook book = new XSSFWorkbook(new FileInputStream(file));
-	
-			Sheet sheet = book.getSheetAt(0);
 			FormulaEvaluator evaluator = book.getCreationHelper().createFormulaEvaluator();
-			
+			Sheet sheet = book.getSheetAt(0);
 			for(Row row : sheet) {
 				for(Cell cell : row) {
 					switch(cell.getCellType()) {
@@ -31,9 +29,5 @@ public class EvalvuateFormula {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-			
 	}
-
 }

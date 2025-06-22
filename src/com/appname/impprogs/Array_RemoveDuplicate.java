@@ -1,5 +1,7 @@
 package com.appname.impprogs;
 
+import org.bouncycastle.util.Arrays;
+
 public class Array_RemoveDuplicate {
 
 	public static void main(String[] args) {
@@ -9,39 +11,28 @@ public class Array_RemoveDuplicate {
 		 * Example array { 1, 1, 2, 2, 2, 3, 3, 3, 3 } and expected output {1 2 3}
 		 */
 
-		int input [] = { 1, 1, 2, 2, 2, 3, 3, 3, 3 };
-		int uniqArray [] = new int[3];
+		int i [] = {1,1,2,2,3,3}; 
+		System.out.println("Length "+i.length);
+		int j[] = new int[i.length];
 		int counter=0;
-		//String uniqueElements = "";
-		for (int eachInt : input) {
-			System.out.println("Inside Main Looop Each Int="+eachInt);
-			boolean duplicate = false;
-			for(int i=0; i<uniqArray.length ; i++) {
-				System.out.println("Inside Duplicate Check Loop");
-				System.out.println("Each Int = "+eachInt );
-				System.out.println(uniqArray[i]);
-				//Check if We already have it identified uniquely
-				if(eachInt==uniqArray[i]){
-					System.out.println("Inside Duplicate Found "+eachInt);
-					duplicate=true;
-					System.out.println("Breaking Current Loop");
-					//Duplicate Found Break the For Loop
-					break;
-				}
-			}
-			if(!duplicate) {
-				System.out.println("Inside Creation of Unique Array"+eachInt);
-				uniqArray[counter]=eachInt;
+		
+		for (int index = 0 ; index<i.length ; index++) {
+			System.out.println("Checking for "+i[index]);
+			if(index+1<i.length && i[index]==i[index+1]) {
+				System.out.println("Duplicate Found");
+				j[counter]=i[index];
 				counter++;
-			}
-			System.out.println("Printing Unique Array");
-			for (int eachInt1 : uniqArray) {
-				System.out.println(eachInt1);
 			}	
 		}
-		//At Last Print The Unique Array
-		for (int eachInt : uniqArray) {
-			System.out.print(eachInt +" ");
+		
+		for (int index = 0 ; index<j.length ; index++) {
+			System.out.println(j[index]);
+		}
+		
+		int final_done[] = Arrays.copyOf(j, counter);
+		
+		for(int each : final_done) {
+			System.out.println(each);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.appname.impprogs;
+package com.appname.arrays;
 
 /**
  * Create A Program to Transpose 2D array in Java

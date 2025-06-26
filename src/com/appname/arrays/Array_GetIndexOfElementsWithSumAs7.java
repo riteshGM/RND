@@ -1,4 +1,4 @@
-package com.appname.impprogs;
+package com.appname.arrays;
 
 public class Array_GetIndexOfElementsWithSumAs7 {
 

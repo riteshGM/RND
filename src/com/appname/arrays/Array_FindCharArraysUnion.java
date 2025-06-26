@@ -1,4 +1,4 @@
-package com.appname.impprogs;
+package com.appname.arrays;
 
 import java.util.HashSet;
 import java.util.Set;

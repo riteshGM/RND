@@ -1,4 +1,4 @@
-package com.appname.impprogs;
+package com.appname.arrays;
 
 import org.bouncycastle.util.Arrays;
 

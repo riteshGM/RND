@@ -16,7 +16,5 @@ public class CommonElementsinArray {
 				}
 			}
 		}
-
 	}
-
 }
